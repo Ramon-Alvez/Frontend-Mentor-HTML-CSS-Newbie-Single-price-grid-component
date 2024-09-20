@@ -1,0 +1,173 @@
+/* Variables */
+:root{
+    --MainColor: hsl(179, 62%, 43%);
+    --Contrast: hsl(71, 73%, 54%);
+
+    --BackgroundColor: hsl(204, 43%, 93%);
+    --FontColor: hsl(218, 22%, 67%);
+
+    --Shadow: hsla(0, 0%, 0%, 0.2);
+
+    font-size: 62.5%;
+}
+
+/* Display center config */
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+
+    background-color: var(--BackgroundColor);
+}
+
+
+/* GRID Stylization */
+.container{
+    background-color: #fff;
+    display: grid;
+    max-width: 66rem;
+    grid-template-areas: 
+        "main-card main-card"
+        "price-card why-us-card";
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: fit-content fit-content;
+    border-radius: 1rem;
+    box-shadow: 0 10px 20px var(--Shadow);
+
+    margin: 2rem;
+
+    font-family: "Karla", sans-serif;
+    font-size: 1.6rem;
+
+    /* Standard Padding */
+    --CardPadding: 4rem;
+}
+
+
+/* Main Card Stylization  */
+.join-card{
+    grid-area: main-card;
+    padding: var(--CardPadding);
+}
+.main-header .title{
+    color: var(--MainColor);
+}
+.main-header .subtitle{
+    color: var(--Contrast);
+    font-size: 1.8rem;
+    
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+}
+.join-card p{
+    color: var(--FontColor);
+    line-height: 1.8;
+}
+
+
+/* Secondary Cards Standard Stylization */
+.card{
+    padding: var(--CardPadding);
+    background-color: var(--MainColor);
+
+    color: #fff;
+}
+.card h2{
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    font-weight: 40rem;
+}
+
+
+/* Price Card Stylization */
+.price-card{
+    grid-area: price-card;
+
+    border-end-start-radius: 10px;
+}
+.price-card .price{
+    display: flex;
+    align-items: center;
+    }
+    .price span{
+        font-size: 3.4rem;
+        padding-right: 1.2rem;
+    }
+    .price p{
+        opacity: 0.8;
+        font-weight: 200;
+}
+.price-card .description{
+    padding: 1rem 0;
+}
+.price-card .button{
+    background-color: var(--Contrast);
+    display: block; 
+    text-align: center;
+    margin-top: 2rem;
+
+    border-radius: 5px;
+    padding: 1.5rem;
+    color: #fff;
+    box-shadow: 0 5px 10px var(--Shadow);
+}
+.price-card .button:hover{
+    transform: scale(1.01);
+    transition: 0.2s ease-in-out;
+    font-weight: bold;
+}
+
+
+/* Why us Card Stylization */
+.why-us-card{
+    grid-area: why-us-card;
+
+    border-end-end-radius: 10px;
+    opacity: .8;
+}
+.why-us-card ul li{
+    font-size: 1.4rem;
+    
+    line-height: 1.5;
+    font-weight: lighter;
+}
+
+
+/* Footer */
+footer{
+    margin-top: 2rem 0;
+}
+.attribution { 
+    font-size: 1.1rem; 
+    text-align: center; 
+}
+.attribution a { 
+    color: hsl(228, 45%, 44%); 
+}
+
+
+/* Responsivity */
+@media (max-width: 55rem) {
+    .container{
+        grid-template-areas: 
+            "main-card"
+            "price-card"
+            "why-us-card";
+        grid-template-columns: 100%;
+        --MobileCardPadding: 3rem;
+    }
+    .join-card{
+        padding: var(--MobileCardPadding);
+    }
+    .card{
+        padding: var(--MobileCardPadding);
+    }
+    .price-card{
+        border-radius: 0;
+    }
+    .why-us-card{
+        border-radius: 0 0 10px 10px;
+    }
+}
